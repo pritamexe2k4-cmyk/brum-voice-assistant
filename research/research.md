@@ -7,47 +7,38 @@ Living notes: what happened, decisions, and useful links. Not a full transcript 
 
 ---
 
-## Timeline (short)
+## Timeline
 
 | When | What |
 |------|------|
 | 2026-09-05 | Repo wipe/rename; S2S research; PHASE1_PRP |
-| 2026-09-06 | Full Lovable-style PRP interview (almost done) |
-| 2026-09-06 | Design minimal/calm; inspirations: ChatGPT Voice, Grok Voice, S2S+KB+persona |
+| 2026-09-06 | Lovable PRP interview completed |
+| 2026-09-06 | Final `LOVABLE_PRD_PROMPT.md` generated |
 
 ---
 
-## Locked decisions
+## Locked v1 decisions
 
 | Area | Choice |
 |------|--------|
-| Voice / models | S2S feel; modular free→premium |
-| UX | ChatGPT-style talk; KB behind; no transcript UI |
+| Product | Personal S2S voice + KB behind (not ChatGPT clone) |
+| UX | ChatGPT/Grok-style talk; minimal calm orb/waveform; no transcript |
 | Answers | Mix chat + web + KB |
 | Uploads | Always on; PDF + broad formats |
 | Platform | App-like web |
 | Auth | None |
-| Social v1 | User ↔ Brum only |
-| Design vibe | Minimal / calm — dark, quiet, orb/waveform |
-| Inspirations | **ChatGPT Voice, Grok Voice**, other S2S KB assistants with persona |
-| Future | Open (friends → company → students, etc.) |
+| Social | User ↔ Brum only |
+| Models | Modular free/basic → premium later |
+| Data | RAG ≠ memory (uploads, identity, session, summaries, user facts) |
+| Inspirations | ChatGPT Voice, Grok Voice, S2S+KB+persona |
 
----
+## Future (not v1)
 
-## Data model (v1)
+Friends → company → students; strict ground/refuse; premium Realtime; auth; **MCPs + Google Drive** for easy access; Notion.
 
-RAG ≠ memory. Uploads+embeddings, identity, working session, summaries, light user facts.
+## Key links
 
----
-
-## Architecture
-
-Mic → WebRTC → swappable free adapters ↔ tools (KB, web, memory) → audio + calm animations
-
-Log: https://github.com/pritamexe2k4-cmyk/brum-voice-assistant/blob/main/research/research.md
-
----
-
-## Next
-
-- Confirm future roadmap → generate Lovable PRD prompt
+- https://github.com/pritamexe2k4-cmyk/brum-voice-assistant
+- https://github.com/pritamexe2k4-cmyk/brum-voice-assistant/blob/main/LOVABLE_PRD_PROMPT.md
+- https://github.com/pritamexe2k4-cmyk/brum-voice-assistant/blob/main/PHASE1_PRP.md
+- https://github.com/livekit/agents · https://github.com/pipecat-ai/pipecat · https://github.com/openai/openai-realtime-agents · https://github.com/Mintplex-Labs/anything-llm · https://github.com/SalesforceAIResearch/VoiceAgentRAG
