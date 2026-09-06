@@ -12,9 +12,8 @@ Living notes: what happened, decisions, and useful links. Not a full transcript 
 | When | What |
 |------|------|
 | 2026-09-05 | Repo wipe/rename; S2S research; PHASE1_PRP |
-| 2026-09-06 | PRP: ChatGPT-style + KB behind; mixed answers; animations; app-like web |
-| 2026-09-06 | Modular free→premium; no auth; data model (RAG vs memory) |
-| 2026-09-06 | Social: **user ↔ Brum only** in v1 |
+| 2026-09-06 | PRP interview through social + data model |
+| 2026-09-06 | Design: **minimal / calm (A)** |
 
 ---
 
@@ -23,25 +22,26 @@ Living notes: what happened, decisions, and useful links. Not a full transcript 
 | Area | Choice |
 |------|--------|
 | Voice / models | S2S feel; modular free→premium |
-| UX | ChatGPT-style; KB behind; animations; no transcript UI |
+| UX | ChatGPT-style talk; KB behind; no transcript UI |
 | Answers | Mix chat + web + KB |
-| Uploads | Always on; PDF + broad formats (+ images into KB when supported) |
+| Uploads | Always on; PDF + broad formats |
 | Platform | App-like web |
 | Auth | None |
-| Social v1 | **User ↔ Brum only** (no user-to-user) |
-| Design vibe | Open |
+| Social v1 | User ↔ Brum only |
+| Design vibe | **Minimal / calm** — dark, quiet, orb/soft waveform states |
+| Inspirations | Open |
 
 ---
 
-## Data model (locked for v1)
+## Data model (v1)
 
-RAG (docs) ≠ Memory (conversations). Persist: uploads + chunks/embeddings, system identity, session working memory (no transcript UI), session summaries, light semantic user facts; images via uploads when supported.
+RAG ≠ memory. Persist uploads+embeddings, identity, working session, summaries, light user facts.
 
 ---
 
-## Architecture (working)
+## Architecture
 
-Mic → WebRTC → swappable free voice adapters ↔ tools (search_kb, web, memory) → audio + animations
+Mic → WebRTC → swappable free adapters ↔ tools → audio + calm state animations
 
 Log: https://github.com/pritamexe2k4-cmyk/brum-voice-assistant/blob/main/research/research.md
 
@@ -49,4 +49,4 @@ Log: https://github.com/pritamexe2k4-cmyk/brum-voice-assistant/blob/main/researc
 
 ## Next
 
-- Design vibe → inspirations → future features → Lovable PRD prompt
+- Inspirations → future features → Lovable PRD prompt
