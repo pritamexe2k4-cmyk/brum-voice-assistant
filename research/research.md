@@ -2,14 +2,25 @@
 
 **Updated:** 2026-09-06
 
-## Direction (locked)
-- Abandoned Lovable + managed-Supabase-as-product
-- Rebuild owned: LangChain, LangGraph, LangSmith, Postgres+pgvector, FastAPI, Next.js, auth, Docker, MLOps lite
-- LLM/STT/TTS = swappable adapters only
+## Direction (locked via Researchy 2026 design)
 
-## Docs
-- [Product presentation](../docs/PRODUCT_PRESENTATION.md) — use / non-use
-- [Workflow](../docs/WORKFLOW.md)
+- Cascade STT → LangGraph → TTS first (not pure S2S day 1)
+- LLM API first (Groq/OpenAI); Ollama adapter second
+- Docker Compose locally first → VPS later
+- Stack: FastAPI + LangGraph + LangSmith + Postgres/pgvector (`user_id` ready) + Next.js + adapters
+- Pipecat/LiveKit = transport UX only, not the brain
+- Steal patterns: openarg_backend, home-generative-agent; skip Lovable/Supabase-as-product
 
-## Resume
-Honest “designing and building” until LangGraph code lands. Auto-refresh Mon/Thu 10:00 IST.
+## Full report
+
+See [BRUM_2026_TECH_DESIGN.md](./BRUM_2026_TECH_DESIGN.md)
+
+## Build order
+
+1. Compose: Postgres+pgvector + FastAPI + Next shell
+2. Auth + user_id schema
+3. Ingest + text RAG
+4. LangGraph + LangSmith
+5. Cascade voice UI
+6. Eval set + CI
+7. Public demo URL
