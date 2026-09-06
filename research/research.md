@@ -18,7 +18,8 @@ Living notes: what happened, decisions, and useful links. Not a full transcript 
 | 2026-09-05 | Locked **pure speech-to-speech** (not cascaded STT→LLM→TTS) |
 | 2026-09-05 | Draft `PHASE1_PRP.md` for customize-and-return |
 | 2026-09-06 | Lovable-style PRP interview started (vision, users, flows) |
-| 2026-09-06 | This log file created (`research/research.md`) — update every Brum session |
+| 2026-09-06 | `research/research.md` living log created |
+| 2026-09-06 | UX locked: **ChatGPT-style voice + KB behind the scenes** |
 
 ---
 
@@ -35,9 +36,14 @@ Living notes: what happened, decisions, and useful links. Not a full transcript 
 - Knowledge-based **speech-to-speech** assistant you can talk to about *that* KB (+ some external knowledge later)
 - Not another ChatGPT; grounded in your corpus; cite or refuse
 
-**Open (PRP interview)**
-- App vs website (leaning: responsive web / app-like for v1)
-- Flow style choice pending: NotebookLM sources-first / ChatGPT Voice / AnythingLLM cites / mix
+**UX (locked 6 Sep)**
+- ChatGPT-style voice: open and talk
+- Knowledge base quiet in the background (uploads/settings separate)
+- Optional light cite chips / “from your notes” without breaking voice vibe
+
+**Still open**
+- App vs website for v1 (leaning responsive web / app-like)
+- Exact P0 feature list (interview in progress)
 
 ---
 
@@ -47,6 +53,7 @@ Living notes: what happened, decisions, and useful links. Not a full transcript 
 - **Not primary:** cascaded Whisper → LLM → TTS (kept as fallback only if needed)
 - **Grounding:** retrieve → answer from chunks or refuse; UI citations from tool results
 - **Spine sketch:** browser mic → WebRTC → S2S model ↔ search_kb → vector KB → spoken reply
+- **UX pattern:** ChatGPT Voice front; AnythingLLM-style KB + cites behind
 
 ---
 
@@ -90,9 +97,9 @@ Living notes: what happened, decisions, and useful links. Not a full transcript 
 
 | Product | Flow gist | Steal |
 |---------|-----------|-------|
-| ChatGPT Voice | Open → talk ↔ listen → transcript in chat | Frictionless S2S loop |
+| ChatGPT Voice | Open → talk ↔ listen → transcript in chat | Frictionless S2S loop (**chosen front**) |
 | NotebookLM | Upload sources → ask grounded notebook | Sources-first KB |
-| AnythingLLM | Workspace upload → chat + citation chips (+ optional voice) | Cite UX / workspace |
+| AnythingLLM | Workspace upload → chat + citation chips (+ optional voice) | Cite UX / workspace (**behind**) |
 | Perplexity Voice | Speak → hear answer + see citations | Speak + verify sources on screen |
 
 ---
@@ -106,14 +113,14 @@ Living notes: what happened, decisions, and useful links. Not a full transcript 
 
 ### 2026-09-06
 - Morning hunt digest paused (unrelated ops).
-- Started Lovable-style PRP Q&A: pitch, problem (company single brain), users (personal → friends → companies → students).
-- User stuck on app vs web + journey → showed 4 reference flows; awaiting A/B/C/D (or mix).
-- Request: keep appending this `research/research.md` every Brum chat.
+- Lovable-style PRP Q&A: pitch, problem, users (personal → friends → companies → students).
+- Compared 4 flows; Preetam chose **B: ChatGPT-style voice with KB behind**.
+- Next: lock P0 features, then platform (web vs app).
 
 ---
 
-## Next (when Preetam answers)
+## Next
 
-- Pick flow style (A NotebookLM / B ChatGPT Voice / C AnythingLLM / D mix)
+- Confirm P0 feature list
 - Lock web vs app for v1
-- Finish PRP → paste into Lovable / scaffold
+- Finish Lovable PRD prompt → build
