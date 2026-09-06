@@ -12,8 +12,8 @@ Living notes: what happened, decisions, and useful links. Not a full transcript 
 | When | What |
 |------|------|
 | 2026-09-05 | Repo wipe/rename; S2S research; PHASE1_PRP |
-| 2026-09-06 | PRP interview through social + data model |
-| 2026-09-06 | Design: **minimal / calm (A)** |
+| 2026-09-06 | Full Lovable-style PRP interview (almost done) |
+| 2026-09-06 | Design minimal/calm; inspirations: ChatGPT Voice, Grok Voice, S2S+KB+persona |
 
 ---
 
@@ -28,20 +28,21 @@ Living notes: what happened, decisions, and useful links. Not a full transcript 
 | Platform | App-like web |
 | Auth | None |
 | Social v1 | User ↔ Brum only |
-| Design vibe | **Minimal / calm** — dark, quiet, orb/soft waveform states |
-| Inspirations | Open |
+| Design vibe | Minimal / calm — dark, quiet, orb/waveform |
+| Inspirations | **ChatGPT Voice, Grok Voice**, other S2S KB assistants with persona |
+| Future | Open (friends → company → students, etc.) |
 
 ---
 
 ## Data model (v1)
 
-RAG ≠ memory. Persist uploads+embeddings, identity, working session, summaries, light user facts.
+RAG ≠ memory. Uploads+embeddings, identity, working session, summaries, light user facts.
 
 ---
 
 ## Architecture
 
-Mic → WebRTC → swappable free adapters ↔ tools → audio + calm state animations
+Mic → WebRTC → swappable free adapters ↔ tools (KB, web, memory) → audio + calm animations
 
 Log: https://github.com/pritamexe2k4-cmyk/brum-voice-assistant/blob/main/research/research.md
 
@@ -49,4 +50,4 @@ Log: https://github.com/pritamexe2k4-cmyk/brum-voice-assistant/blob/main/researc
 
 ## Next
 
-- Inspirations → future features → Lovable PRD prompt
+- Confirm future roadmap → generate Lovable PRD prompt
