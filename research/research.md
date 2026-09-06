@@ -6,14 +6,15 @@
 
 - Cascade STT → LangGraph → TTS first (not pure S2S day 1)
 - LLM API first (Groq/OpenAI); Ollama adapter second
-- Docker Compose locally first → VPS later
+- Docker Compose locally first → VPS/Railway later
 - Stack: FastAPI + LangGraph + LangSmith + Postgres/pgvector (`user_id` ready) + Next.js + adapters
 - Pipecat/LiveKit = transport UX only, not the brain
-- Steal patterns: openarg_backend, home-generative-agent; skip Lovable/Supabase-as-product
+- Steal patterns: LangGraph-RAG-Agent, agent-service-toolkit, rag_api; skip Lovable/Supabase-as-product
 
-## Full report
+## Full reports
 
-See [BRUM_2026_TECH_DESIGN.md](./BRUM_2026_TECH_DESIGN.md)
+- [BRUM_2026_TECH_DESIGN.md](./BRUM_2026_TECH_DESIGN.md)
+- [live-report.md](./live-report.md)
 
 ## Build order
 
@@ -27,13 +28,15 @@ See [BRUM_2026_TECH_DESIGN.md](./BRUM_2026_TECH_DESIGN.md)
 
 ## Extra clone targets (Researchy live pass 2026-09-06)
 
-Primary:
-- [hosseinabadii/LangGraph-RAG-Agent](https://github.com/hosseinabadii/LangGraph-RAG-Agent) — FastAPI+LangGraph+pgvector+JWT+Compose blueprint
-- [JoshuaC215/agent-service-toolkit](https://github.com/JoshuaC215/agent-service-toolkit) (4470★) — service packaging + LangSmith feedback
-- [danny-avila/rag_api](https://github.com/danny-avila/rag_api) (891★) — ingest workers + owner-scoped retrieval
+| Repo | Stars (API ~2026-09-06) | Role |
+| --- | --- | --- |
+| [hosseinabadii/LangGraph-RAG-Agent](https://github.com/hosseinabadii/LangGraph-RAG-Agent) | 5 | **Primary blueprint** — FastAPI+LangGraph+pgvector+JWT+Compose |
+| [JoshuaC215/agent-service-toolkit](https://github.com/JoshuaC215/agent-service-toolkit) | 4470 | Service packaging + LangSmith feedback |
+| [danny-avila/rag_api](https://github.com/danny-avila/rag_api) | 891 | Ingest workers + owner-scoped retrieval |
+| [ahmad2b/langgraph-voice-call-agent](https://github.com/ahmad2b/langgraph-voice-call-agent) | 47 | Post-MVP LiveKit adapter only |
+| [dqbd/langgraph-livekit-agents](https://github.com/dqbd/langgraph-livekit-agents) | 82 | Post-MVP LiveKit adapter only |
 
-Post-MVP voice transport only:
-- [ahmad2b/langgraph-voice-call-agent](https://github.com/ahmad2b/langgraph-voice-call-agent)
-- [dqbd/langgraph-livekit-agents](https://github.com/dqbd/langgraph-livekit-agents)
+## Session notes
 
-Full write-up: [live-report.md](./live-report.md)
+- 2026-09-06: Rejected Lovable/Supabase product path; locked owned LC/LG/LS stack.
+- 2026-09-06: Researchy design + live report absorbed; docs pack prepared; **no application code until Preetam START**.

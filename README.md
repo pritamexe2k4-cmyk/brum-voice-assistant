@@ -1,34 +1,68 @@
-# Brum — Voice Assistant
+# Brum — Voice Knowledge Assistant
 
-Voice-first AI application over a personal/company knowledge base.
+**One-liner:** Personal voice assistant over *your* docs — owned FastAPI + LangGraph RAG stack (not a ChatGPT skin).
 
-**Repo:** https://github.com/pritamexe2k4-cmyk/brum-voice-assistant
-**Status:** Phase 1 starting — end-to-end deployed realtime voice + knowledge. Code TBD.
+**Repo:** https://github.com/pritamexe2k4-cmyk/brum-voice-assistant  
+**Status:** **Docs-only / build not started.** App code waits for Preetam’s explicit **START** signal.
 
-## What Brum is
+---
 
-Brum is a voice assistant people actually talk to. It sits on a knowledge layer (notes, dumps, later Notion / company corpus). Talk in, grounded answers out. Cite what it knows; refuse what it does not.
+## Use
 
-Longer arc: multi-user company brain-dumps so a team shares one company voice. Phase 1 is the spine — realtime voice + KB for real users.
+- Upload personal notes/PDFs → ask by voice or text → grounded answers from your KB
+- AI Engineer resume demo: LangGraph + pgvector + LangSmith + Docker
+- Quiet study / second-brain companion
 
-## Phase 1 (target)
+## Non-use (out of MVP)
 
-- Browser mic to speech-to-text
-- Knowledge store (start: uploads / markdown; Notion later)
-- Chat + voice reply: retrieve, then answer with sources or `not_in_knowledge`
-- Deployed end-to-end (live URL), not a notebook
-- Small real-user set
+- Multi-tenant company SaaS / orgs
+- Phone/SIP call-center
+- Pure speech-to-speech as the MVP spine
+- Lovable / Supabase-as-product lock-in
+- MCP / Drive connectors (later)
 
-## Out of Phase 1
+---
 
-- Fine-tuning the base model on dumps
-- Full multi-tenant company Brum / lenses
-- Notion OAuth (Phase 1.5+)
-- Mobile app
+## Stack locks (2026-09-06)
 
-## Stack (planned)
+| Layer | Choice |
+| --- | --- |
+| Voice | **Cascade** STT → LangGraph → TTS first |
+| LLM | **API first** (Groq/OpenAI); Ollama adapter later |
+| Host | **Docker Compose locally** first → Railway/VPS later |
+| API | FastAPI |
+| Orchestration | LangGraph + LangChain tools |
+| Observe | LangSmith |
+| DB | Postgres 16 + pgvector (+ checkpointer) |
+| Web | Next.js (App Router) + React |
+| Adapters | Swappable STT / TTS / LLM / embeddings |
 
-Python, FastAPI, LangGraph/RAG retrieval, STT/TTS, simple web client, hosted deploy.
+Pipecat / LiveKit = **post-MVP transport only**, not the brain.
+
+---
+
+## Docs map
+
+| Doc | Purpose |
+| --- | --- |
+| [docs/PRODUCT_PRESENTATION.md](docs/PRODUCT_PRESENTATION.md) | Product story, use / non-use |
+| [docs/WORKFLOW.md](docs/WORKFLOW.md) | Ingest + cascade voice + observe |
+| [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | System design + planned monorepo |
+| [docs/BUILD_PLAN.md](docs/BUILD_PLAN.md) | Milestones M0–M5 (**no code until START**) |
+| [docs/DECISIONS.md](docs/DECISIONS.md) | Locked product/tech decisions |
+| [docs/INTERVIEW.md](docs/INTERVIEW.md) | Honest talking points |
+| [docs/SCHEMA.md](docs/SCHEMA.md) | Design-only DB sketch |
+| [research/research.md](research/research.md) | Living research log |
+| [research/BRUM_2026_TECH_DESIGN.md](research/BRUM_2026_TECH_DESIGN.md) | Researchy design brief |
+| [research/live-report.md](research/live-report.md) | Deep live research pass |
+
+---
+
+## Success criteria (MVP)
+
+Login → upload docs → text grounded answers with LangSmith traces → voice turn on the **same** graph → `docker compose up` locally → honest resume bullets.
+
+---
 
 ## License
 
