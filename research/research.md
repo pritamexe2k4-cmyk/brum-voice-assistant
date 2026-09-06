@@ -13,19 +13,9 @@ Living notes: what happened, decisions, and useful links. Not a full transcript 
 |------|------|
 | ~early | Idea: company voice brain-dumps → shared KB → team voice assistant |
 | 2026-09-05 | Wiped `production-rag` → `brum-voice-assistant`; S2S research; PHASE1_PRP |
-| 2026-09-06 | PRP interview; research log; ChatGPT-style + KB behind |
-| 2026-09-06 | Features: mixed chat/web/KB; uploads always; no transcript; animations |
-| 2026-09-06 | Platform: **C — web that feels like an app** |
-| 2026-09-06 | Voice models: **modular**; free/basic first → premium after MVP pipeline |
-
----
-
-## Product north star vs Phase 1 / MVP
-
-**North star:** company brain-dumps → shared KB → one voice guide agent  
-**MVP:** personal ChatGPT-style S2S; KB behind; mixed answers; upload always; animations; **app-like web**; **free/modular models**
-
-**Scale ladder:** you → friends group → companies → students/classes
+| 2026-09-06 | PRP interview; ChatGPT-style + KB behind; mixed answers; animations |
+| 2026-09-06 | Platform C (app-like web); modular free→premium models |
+| 2026-09-06 | Auth: **none** — private project, no accounts |
 
 ---
 
@@ -33,42 +23,40 @@ Living notes: what happened, decisions, and useful links. Not a full transcript 
 
 | Area | Choice |
 |------|--------|
-| Voice | Pure speech-to-speech *feel*; providers modular |
-| Models | Free/basic for MVP; swap to premium later without rewrite |
-| UX | ChatGPT-style; KB silent behind |
-| Answers | Mix conversation + web + KB (strict ground/refuse later) |
-| Uploads | Always available; PDF + broad formats |
+| Voice | S2S *feel*; providers modular |
+| Models | Free/basic MVP → premium later |
+| UX | ChatGPT-style; KB behind |
+| Answers | Mix chat + web + KB |
+| Uploads | Always on; PDF + broad formats |
 | Transcript | No |
 | UI motion | Idle / listening / processing / speaking |
 | Platform | Web that feels like an app |
-| Users v1 | Single person (Preetam) |
-| Auth | Open (A private link vs B Supabase login) |
+| Users v1 | Single person |
+| Auth | **No accounts** (private link / local project) |
+| Data | Open — likely files + embeddings + light settings |
 
 ---
 
 ## Architecture (working)
 
-- Mic → WebRTC → **swappable** voice adapters (free STT/LLM/TTS or free Realtime-class) ↔ tools (search_kb, web) → audio + animations
-- Design for provider interfaces so premium Realtime/ElevenLabs/etc. plug in later
-- Uploads/storage: lean Supabase (or equiv)
+- Mic → WebRTC → swappable free voice adapters ↔ tools (search_kb, web) → audio + animations
+- No user auth layer in v1
+- Storage for uploads/embeddings only (Supabase or local/simple)
 - Front: Lovable/React full-screen voice UI
 
-Note: true premium S2S may need paid keys; free path may be cascaded free STT→LLM→TTS behind the same UI until upgrade.
-
-Refs: livekit/agents · pipecat · openai-realtime-agents · anything-llm · VoiceAgentRAG  
 Log: https://github.com/pritamexe2k4-cmyk/brum-voice-assistant/blob/main/research/research.md
 
 ---
 
 ## Session notes — 2026-09-06
 
-- No paid keys now → modular free/basic models; premium after pipeline works.
-- Awaiting auth (A/B), then data / social / vibe / inspirations / future.
+- Auth = none for now.
+- Next: confirm data scope, then social / vibe / inspirations / future → Lovable PRD.
 
 ---
 
 ## Next
 
-- Auth pick
-- Data, multiplayer?, design vibe, inspirations, future
+- Confirm stored data
+- Multiplayer? design vibe, inspirations, future features
 - Generate Lovable PRD prompt
