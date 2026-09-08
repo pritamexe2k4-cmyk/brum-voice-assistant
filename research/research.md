@@ -46,3 +46,6 @@
 - Goal: run the project under the **Brum** repo/name; UI/client can come later.
 - `.env.local` not committed; use `.env.example`.
 - Upstream reference: https://github.com/george07-t/RAGVoice-AI
+
+## 2026-09-08 — README + architecture diagram
+- Added docs/brum-architecture.png and full README (stack, quick start, deploy, architecture).
