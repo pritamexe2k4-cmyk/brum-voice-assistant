@@ -1,0 +1,24 @@
+services:
+- type: web
+  # Change this to YOUR GitHub repository URL
+  repo: https://github.com/george07-t/RAGVoice-AI.git
+  
+  # Path to directory with Dockerfile (root directory in your case)
+  rootDir: .
+  
+  name: ragvoice-ai-agent
+  runtime: docker
+  
+  # Docker configuration
+  dockerfilePath: ./Dockerfile
+  dockerContext: .
+  
+  plan: free
+  
+  # Environment variables group (create this in Render dashboard)
+  envVars:
+  - fromGroup: ragvoice-ai-env
+  
+  region: virginia
+  
+version: "1"

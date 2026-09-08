@@ -40,3 +40,9 @@
 
 - 2026-09-06: Rejected Lovable/Supabase product path; locked owned LC/LG/LS stack.
 - 2026-09-06: Researchy design + live report absorbed; docs pack prepared; **no application code until Preetam START**.
+
+## 2026-09-08 — RAGVoice runtime transported into Brum
+- Copied local Desktop `RAGVoice-AI` engine into `brum-voice-assistant` (src, documents, vector_store, requirements).
+- Goal: run the project under the **Brum** repo/name; UI/client can come later.
+- `.env.local` not committed; use `.env.example`.
+- Upstream reference: https://github.com/george07-t/RAGVoice-AI

@@ -1,69 +1,32 @@
-# Brum — Voice Knowledge Assistant
+﻿# Brum — Voice Knowledge Assistant
 
-**One-liner:** Personal voice assistant over *your* docs — owned FastAPI + LangGraph RAG stack (not a ChatGPT skin).
+Personal voice + RAG assistant (**Brum**). Runtime stack transported from a working RAGVoice-AI reference so you can run Brum locally under this repo name.
 
-**Repo:** https://github.com/pritamexe2k4-cmyk/brum-voice-assistant  
-**Status:** **Docs-only / build not started.** App code waits for Preetam’s explicit **START** signal.
+## What runs here
+- **RAG:** documents → chunks → OpenAI embeddings → FAISS (`vector_store/`)
+- **Orchestration:** LangGraph multi-agent (`src/multi_agent_rag.py`)
+- **Voice path (optional keys):** LiveKit + Deepgram STT + Cartesia TTS (`src/agent.py`)
 
----
+## Quick start (Windows)
 
-## Use
+```powershell
+cd C:\Users\preet\OneDrive\Desktop\brum-voice-assistant
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+copy .env.example .env.local
+# put OPENAI_API_KEY in .env.local (required for RAG)
+python src\rag_system.py
+```
 
-- Upload personal notes/PDFs → ask by voice or text → grounded answers from your KB
-- AI Engineer resume demo: LangGraph + pgvector + LangSmith + Docker
-- Quiet study / second-brain companion
+With only OpenAI you get FAISS + retrieval tests. Full voice needs LiveKit / Deepgram / Cartesia in `.env.local`.
 
-## Non-use (out of MVP)
+## Layout
+- `src/` — Brum runtime (RAG, agents, voice entry)
+- `documents/` — sample KB docs
+- `vector_store/` — local FAISS index (regenerate with `rag_system.py`)
+- `research/` — Brum product decisions log
+- `PHASE1_PRP.md`, `docs/` — product specs
 
-- Multi-tenant company SaaS / orgs
-- Phone/SIP call-center
-- Pure speech-to-speech as the MVP spine
-- Lovable / Supabase-as-product lock-in
-- MCP / Drive connectors (later)
-
----
-
-## Stack locks (2026-09-06)
-
-| Layer | Choice |
-| --- | --- |
-| Voice | **Cascade** STT → LangGraph → TTS first |
-| LLM | **API first** (Groq/OpenAI); Ollama adapter later |
-| Host | **Docker Compose locally** first → Railway/VPS later |
-| API | FastAPI |
-| Orchestration | LangGraph + LangChain tools |
-| Observe | LangSmith |
-| DB | Postgres 16 + pgvector (+ checkpointer) |
-| Web | Next.js (App Router) + React |
-| Adapters | Swappable STT / TTS / LLM / embeddings |
-
-Pipecat / LiveKit = **post-MVP transport only**, not the brain.
-
----
-
-## Docs map
-
-| Doc | Purpose |
-| --- | --- |
-| [docs/PRODUCT_PRESENTATION.md](docs/PRODUCT_PRESENTATION.md) | Product story, use / non-use |
-| [docs/WORKFLOW.md](docs/WORKFLOW.md) | Ingest + cascade voice + observe |
-| [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | System design + planned monorepo |
-| [docs/BUILD_PLAN.md](docs/BUILD_PLAN.md) | Milestones M0–M5 (**no code until START**) |
-| [docs/DECISIONS.md](docs/DECISIONS.md) | Locked product/tech decisions |
-| [docs/INTERVIEW.md](docs/INTERVIEW.md) | Honest talking points |
-| [docs/SCHEMA.md](docs/SCHEMA.md) | Design-only DB sketch |
-| [research/research.md](research/research.md) | Living research log |
-| [research/BRUM_2026_TECH_DESIGN.md](research/BRUM_2026_TECH_DESIGN.md) | Researchy design brief |
-| [research/live-report.md](research/live-report.md) | Deep live research pass |
-
----
-
-## Success criteria (MVP)
-
-Login → upload docs → text grounded answers with LangSmith traces → voice turn on the **same** graph → `docker compose up` locally → honest resume bullets.
-
----
-
-## License
-
-Private build for now — license TBD.
+## Note
+Client UI / Brum product redesign can continue separately; this commit makes the **runnable voice+RAG engine** live inside `brum-voice-assistant`.
